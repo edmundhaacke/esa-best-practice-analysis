@@ -1,0 +1,3 @@
+# Reproducible Analytical Pipelines
+
+Analytical tasks can vary in their nature, from quick turn-around to long-term pieces. Short-term projects may develop into a longer-term commission within the team; or be revisited or refreshed in the future. There is also an organizational need to avoid duplicative work, thus work may be passed on to others. With this in mind, guidance on developing reproducible analytical pipelines should be followed where possible, proportionate and reasonable.

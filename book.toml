@@ -4,3 +4,6 @@ language = "en"
 multilingual = false
 src = "src"
 title = "Economics & Strategic Analysis's Best Practice Guide to Analysis"
+
+[output.html]
+mathjax-support = true
