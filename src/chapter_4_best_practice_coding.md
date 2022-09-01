@@ -101,7 +101,7 @@ When using a platform such as GitHub, it is **important you follow any organizat
 
 When using a platform such as GitHub, there are important steps which need to be taken to ensure that anything confidential such as data or results are not inadvertently shared or uploaded into the public domain. A `gitignore` file (located within the root of your project as a plaintext file named `.gitignore` specifies untracked files that Git should ignore, with each line specifying a pattern. This should be created before the first commit, as this ***will not*** remove files already uploaded.
 
-```bash
+```
 # ignore specific files
 .Rproj.user
 .Rbuildignore
@@ -110,6 +110,10 @@ When using a platform such as GitHub, there are important steps which need to be
 # ignore all content within specific directories
 data/**
 outputs/**
+# ignore certain filetypes across all directories
+**.png
+**.log
+**.csv
 ```
 
 Further details on `gitignore` can be found in the [gitignore documentation](https://git-scm.com/docs/gitignore).
