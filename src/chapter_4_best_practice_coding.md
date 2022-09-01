@@ -113,18 +113,3 @@ outputs/**
 ```
 
 Further details on `gitignore` can be found in the [gitignore documentation](https://git-scm.com/docs/gitignore).
-
-## Literature Review
-
-A review of the existing literature is can occur in the form of a _rapid literature review_, which, as the name suggests is conducted over a very short period of time. For larger, longer term projects, it may be desirable to conduct a more thorough review of the literature. There are three main goals when conducting a review of the literature:
-
-1. Summarize and analyse previous research, theories and analytical approaches
-2. Identify contested areas or conflicting findings
-3. Highlight gaps within the literature
-
-The literature review is important as it can help inform the analytical approach (e.g. what econometric model, what other factors need to be controlled for etc). Furthermore, it can provide a means to quality assure your analysis through a simple sense check, for example checking whether your findings are in alignment with, or contradictory to the majority of existing literature.
-
-### Resources
-
-- OpenAthens: You can register an OpenAthens account through the National Institute for Health and Care Excellence (NICE) 
-- EconLit: Members and Associate Members (e.g. NHSE) of the Government Economics Service (GES) receive free access to [EconLit Journal Access](https://members.ges.gov.uk/your-career/your-continued-professional-development/core-resources-and-guidance/ebsco/). Note this is only open those with an Economics degree and working in the Economics profession.
