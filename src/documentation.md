@@ -35,6 +35,65 @@ This is some text.
 
 This is more text.
 
+Text can be formatted as bold, italics, blockquotes, links, and images.
+
+| Element | Syntax | Example |
+| :---: | :--- | :--- |
+| Bold | `**bold text**` | **bold text** |
+| Italic | `_italic text_` | _italic text_ |
+| Bold Italic | `***bold italics***` | ***bold italics***
+| Code | `` `code` `` | `code` |
+| Strikethru | `~~strikethru~~` | ~~strikethru~~ |
+| Highlight | `==highlight==` | ==highlight== |
+| Link | `[github](https://github.com)` | [github](https://github.com) |
+
+---
+
+### Code
+
+Code-blocks can be created in Markdown, with support for syntax highlighting many renderers e.g. GitHub.
+
+Inline code can be defined using single `` ` `` as such  `` `code` ``  resulting in `code`. To create blocks of code, tripple `` ` `` can be used, with the language defined after the first set of ticks. See the rendering platofmr
+
+````
+```scala
+val str = "hello world23412".replaceAll("[0-9]", "")
+val strSplit = str.split(" ")
+```
+
+```rust
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+let rect = Rectangle {
+    width: 100,
+    height: 200
+};
+```
+
+````
+
+```scala
+val str = "hello world23412".replaceAll("[0-9]", "")
+val strSplit = str.split(" ")
+```
+
+```rust
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+fn main(){
+    let rect = Rectangle {
+        width: 100,
+        height: 200,
+    };
+}
+```
+
 ---
 
 ### Headings
@@ -115,5 +174,21 @@ Tables can be created using GitHub Flavoured Markdown (GFM). Columns can be left
 | **bold** | _italics_ | ***bold italic*** |
 | `code` |
 
+---
+
+### Blockquotes
+
+The `>` symbol can be used to commence a blockquote.
+
+```
+> line one of the block quote.
+> this continues on the previous line.
+```
+> line one of the block quote.
+> this continues on the previous line.
+
+---
+
 ## Mermaid
 
+Mermaid is an excellent tool for creating graphs of many different types using purely text. GitHub will also render mermaid, whether inline within a Markdown document, or individually as a `.mmd` file. Mermaid can be fully integrated in version control software, and can also be generated via code, for example using the `diagrammeR` package in R. Please refer to their documentation [here](https://mermaid-js.github.io/mermaid/) for an indepth guide on how to get started. Examples of its use can be found within certain ESA projects on the NHS England GitHub.
