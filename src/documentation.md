@@ -192,3 +192,30 @@ The `>` symbol can be used to commence a blockquote.
 ## Mermaid
 
 Mermaid is an excellent tool for creating graphs of many different types using purely text. GitHub will also render mermaid, whether inline within a Markdown document, or individually as a `.mmd` file. Mermaid can be fully integrated in version control software, and can also be generated via code, for example using the `diagrammeR` package in R. Please refer to their documentation [here](https://mermaid-js.github.io/mermaid/) for an indepth guide on how to get started. Examples of its use can be found within certain ESA projects on the NHS England GitHub.
+
+You can create an inline mermaid chart as follows (note it may not work for all renderers)
+
+````
+```mermaid
+%% this is a comment
+%% mermaid syntax goes here
+```
+````
+
+### Flowcharts
+
+````
+```mermaid
+flowchart LR
+    node1[This is a node in a square]
+    node2(This is a square node with rounded edges)
+    node3([This is a node with rounded corners])
+```
+````
+
+```mermaid
+flowchart LR
+    node1[This is a node in a square]
+    node2(This is a square node with rounded edges)
+    node3([This is a node with rounded corners])
+```
