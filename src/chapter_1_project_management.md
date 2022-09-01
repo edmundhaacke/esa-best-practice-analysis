@@ -16,4 +16,3 @@ Any errors or miscalculates identified within the development stage should be lo
 
 #### Lessons Learnt Log
 
-
