@@ -48,6 +48,10 @@ The use of special characters to represent the statistical significance level wi
 | Generalized Linear - Poisson/Negative Binomial count models with log-link | $$ \beta_x $$ | log-linear | $\\x$ is not a proportion/share | All things equal, a **1 unit** increase in $\\x$ is _associated_ with a $\\\beta_x$ increase in the log of the ratio of expected counts ***or*** a **1 unit** increase in $\\x$ is _associated_ with a $\\(exp(\beta_x)-1)*100\%$ increase in the **rate** of $\\y$ |
 | Generalized Linear - Poisson/Negative Binomial count models with log-link | $$ \beta_x $$ | log-linear | $\\x$ is a proportion/share | All things equal, a **1 percentage point** increase in $\\x$ is _associated_ with a $\frac{\beta_x}{100}$ increase in log of the ratio of expected counts ***or*** a **1 percentage point** increase in $\\x$ is _associated_ with a $\\(exp(\frac{\beta_x}{100})-1)*100\%$ increase in the **rate** of $\\y$ |
 
+### Economic Significance
+
+Whilst a particular variable or regressor may be statistically significant, this does not imply that they are ***economically significant*** - essentially whether or not something matters in the real-world. For example, a finding may be statistically significant, but the coefficient may be negligible. One suggested method is to scale the coefficient by relevant factor determined from the sample, such as one standard deviation, or the difference between the min/mean/max to the min/mean/max. Rather than presenting the results based on a one unit increase in \\[x\\], this approach relates the finding back to the sample used. Note for generalized linear regression models, the scaling should be applied _before_ transformation (e.g. taking the exponential).
+
 ### Control variables
 
 Frequently, reporting of results from an econometric analysis will focus around one, or a few main _variables of interest_. It is however important, and may raise interesting findings from a policy perspective, to review findings from _all_ variables, including controls within the model. It is recommended that regression outputs are either **tabulated** into an Excel/CSV document, or **visualized using coefficient plots**.
