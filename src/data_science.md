@@ -1,1 +1,1 @@
-# Data ScienceS
+# Data Science

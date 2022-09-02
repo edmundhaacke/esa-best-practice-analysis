@@ -62,15 +62,21 @@ val strSplit = str.split(" ")
 ```
 
 ```rust
-struct Rectangle {
-    width: u32,
-    height: u32,
+#[derive(Parser)]
+#[clap(version=concat!(env!("CARGO_PKG_VERSION")), about="Molokai")]
+struct Args {
+    /// Address to bind server to
+    #[clap(short, long, default_value = "0.0.0.0")]
+    address: String,
+    /// Port to listen on
+    #[clap(short, long, default_value = "3000")]
+    port: u16
 }
-
-let rect = Rectangle {
-    width: 100,
-    height: 200
-};
+fn main() {
+    let args = Args::parse();
+    println!("address {}", args.address);
+    println!("port {}", args.port)
+}
 ```
 
 ````

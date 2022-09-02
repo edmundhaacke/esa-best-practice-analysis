@@ -95,7 +95,7 @@ Version control in development, is the process of tracking and managing changes 
 
 One of the most widely used version control systems is **Git**. 
 
-When using a platform such as GitHub, it is **important you follow any organizational policies** relating to its use. You can find further details on the [ICT Architecture page](https://github.com). 
+When using a platform such as GitHub, it is **important you follow any organizational policies** relating to its use. You can find further details on the [ICT Architecture page](https://nhsengland.github.io/it-standards). 
 
 #### Ensuring data security
 
