@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Best Practice in Coding - Economics &amp; Strategic Analysis&#x27;s Best Practice Guide to Analysis</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="chapter_1_project_management.html"><strong aria-hidden="true">1.</strong> Managing Analytical Projects</a></li><li class="chapter-item expanded "><a href="chapter_2_reproducible_pipelines.html"><strong aria-hidden="true">2.</strong> Reproducible Analytical Pipelines</a></li><li class="chapter-item expanded "><a href="chapter_3_quality_assurance.html"><strong aria-hidden="true">3.</strong> Quality Assurance</a></li><li class="chapter-item expanded "><a href="chapter_4_best_practice_coding.html" class="active"><strong aria-hidden="true">4.</strong> Best Practice in Coding</a></li><li class="chapter-item expanded "><a href="intro_to_r.html"><strong aria-hidden="true">5.</strong> Introduction to R</a></li><li class="chapter-item expanded "><a href="documentation.html"><strong aria-hidden="true">6.</strong> Documentation</a></li><li class="chapter-item expanded "><a href="data_analysis.html"><strong aria-hidden="true">7.</strong> Data Analysis</a></li><li class="chapter-item expanded "><a href="econometrics.html"><strong aria-hidden="true">8.</strong> Econometrics</a></li><li class="chapter-item expanded "><a href="data_science.html"><strong aria-hidden="true">9.</strong> Data Science</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Economics &amp; Strategic Analysis&#x27;s Best Practice Guide to Analysis</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="best-practice-in-codingprogramming"><a class="header" href="#best-practice-in-codingprogramming">Best practice in coding/programming</a></h1>
+<h2 id="key-principles"><a class="header" href="#key-principles">Key principles</a></h2>
+<p>Good quality code, and thus coding practice is crucial for several reasons</p>
+<ol>
+<li>It allows for easy maintenance for both yourself, and others in the team</li>
+<li>It enables others to peer review your code easily</li>
+</ol>
+<h4 id="naming"><a class="header" href="#naming">Naming</a></h4>
+<p>All variables should be named clearly, in a meaningfully descriptive manner that gives the user context as to what the variable contains. A key test of this is whether you would, six months later, come back to the code, and immediately continue working on it.</p>
+<p>There are different naming conventions, which may differ across programming languages.</p>
+<ol>
+<li><strong>Snakecase</strong>, where words are delimited by an underscore <code>variable_one</code>. This is the naming convention used by Python (van Rossum <em>et al</em>, 2001), and C.</li>
+<li><strong>Pascalcase</strong> (or Upper Camelcase), where words are delimited by capital letters <code>VariableOne</code>. </li>
+<li><strong>Camelcase</strong>, where words are delimited by capital letters, except the initial word <code>variableOne</code>. This is the naming convention used by C++ for variables/functions.</li>
+<li><strong>Hungarian Notation</strong>, where the variable type/purpose is at the start of the variable name, followed by a description of the variable. Camelcase notation is used to delimit words. <code>arrAgeGroups</code> denotes an array called 'AgeGroups', and <code>iAgeLimit</code> denotes an integer called 'Age Limit'.</li>
+</ol>
+<p>Note that R does not have a formal naming convention, with multiple naming conventions prevalent throughout. Uses can also use '.' within names, e.g. <code>variable.one</code>.</p>
+<p>STATA places restrictions on the length of variable names, they are limited to 32 characters. You will often find that when loading data with column names above this limit, that STATA renames your columns to <code>var1</code> etc... You cannot change this limit. This therefore raises the need to use abbreviations (although this applies to naming in general). You should follow two principles in using abbreviations:</p>
+<ol>
+<li><strong>Consistency</strong>: if you use an abbreviation, it should be used everywhere instead of the full name. You should have only a single abbreviation for a name.</li>
+<li><strong>Recognition</strong>: the abbreviation should be commonly recognized, and understood.</li>
+</ol>
+<p>Ultimately, which naming convention you choose is user-preference, however, it is important for legibility that you are consistent in using it across your code.</p>
+<h4 id="whitespace-and-tabbing"><a class="header" href="#whitespace-and-tabbing">Whitespace and tabbing</a></h4>
+<p>Whitespace is any space in your code which isn't taken up by physical characters. Some languages ignore whitespace and tabbing, however some rely upon this to function (e.g. Python). Whitespace is important for organizing code, and is frequently used in nested loops and logical statements.</p>
+<h5 id="no-whitespace"><a class="header" href="#no-whitespace">No whitespace</a></h5>
+<pre><code class="language-r"># print even numbers between 0 and 10
+for(i in 1:10){ if(i%%2==0){ print(i) } else {print('not even')} }
+</code></pre>
+<h5 id="with-whitespace"><a class="header" href="#with-whitespace">With whitespace</a></h5>
+<pre><code class="language-r"># print even numbers between 0 and 10
+for (i in 1:10){
+	if (i%%2==0){
+		print(i)
+	} else {
+		print('not even')
+	}
+}
+</code></pre>
+<p>Again it is important to use whitespace and tabbing in a consistent, readable style within any code.</p>
+<h4 id="commenting"><a class="header" href="#commenting">Commenting</a></h4>
+<p>Commenting is a key practice to help with organization and segment your code. Comments can help label code, and sections of code, and should be used in a consistent and intuitive manner, which help other users to easily understand your code. Conversely, you should not over-comment your code, as this may compromise ease of understanding.</p>
+<h4 id="dont-repeat-yourself-dry"><a class="header" href="#dont-repeat-yourself-dry">Don't Repeat Yourself (DRY)</a></h4>
+<p>The Don't Repeat Yourself (DRY) principle essentially means avoid repeating code. Any duplication should be eliminated through automation (e.g. loops). These duplicates add unnecessary code into your codebase, which can require additional work to build on your code in the future. It decreases the quality of the code, and usually stems from copy paste programming. It can also lead to errors in the future, as you have to modify several instances of the same code, some of which may be missed.</p>
+<h4 id="you-arent-going-to-need-it-yagni"><a class="header" href="#you-arent-going-to-need-it-yagni">You Aren't Going to Need It (YAGNI)</a></h4>
+<p>The You Aren't Going to Need It (YAGNI) principle states you shouldn't develop code for something that isn't necessary. Essentially, you should only implement things when you need them, not when you just foresee that you need them. </p>
+<h4 id="refactor"><a class="header" href="#refactor">Refactor</a></h4>
+<p>Refactoring code is when you review, and look for ways to optimize to your code, with the goal of making it more efficient without changing the results. It is normal to revisit, rewrite, or even redesign chunks of code, especially as your knowledge and familiarity of the project develop.</p>
+<h3 id="other-considerations"><a class="header" href="#other-considerations">Other considerations</a></h3>
+<p>Although the aforementioned principles to programming are</p>
+<h3 id="examples-of-code"><a class="header" href="#examples-of-code">Examples of code</a></h3>
+<p>Below are some examples of code that the ESA Team has produced</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Project</th><th style="text-align: left">Programming language</th><th style="text-align: left">Location</th><th style="text-align: left">Authors</th></tr></thead><tbody>
+<tr><td style="text-align: left">ED crowding</td><td style="text-align: left">R</td><td style="text-align: left"><a href="https://github.com/nhsengland/ESA_ED_Crowding">NHS England GitHub</a></td><td style="text-align: left">Svetlana Batrakova, Ranya Alakraa, Dimitris Pipinis, Edmund Haacke</td></tr>
+<tr><td style="text-align: left">Avoidable ED attendances</td><td style="text-align: left">C++ and R</td><td style="text-align: left"><a href="https://github.com/nhsengland/ESA_Avoidable_ED_Attendances">NHS England GitHub</a></td><td style="text-align: left">Edmund Haacke</td></tr>
+</tbody></table>
+</div>
+<h2 id="version-control"><a class="header" href="#version-control">Version control</a></h2>
+<h3 id="version-control-in-coding"><a class="header" href="#version-control-in-coding">Version control in coding</a></h3>
+<p>Version control in development, is the process of tracking and managing changes to files over time. Version control can be used for versioning code, binary files and digital assets. A version control system allows for the following benefits:</p>
+<ol>
+<li>Concurrent development - multiple users can work using the same set of files without the concern of overwriting other team members' work.</li>
+<li>Collaboration - there is a single source of the truth available to all users. Each team member is working on the latest version of the code.</li>
+<li>Tracked changes - version control systems let you identify who changed what, when and why. This gives an auditable log of all changes made to the code-base.</li>
+</ol>
+<p>One of the most widely used version control systems is <strong>Git</strong>. </p>
+<p>When using a platform such as GitHub, it is <strong>important you follow any organizational policies</strong> relating to its use. You can find further details on the <a href="https://nhsengland.github.io/it-standards">ICT Architecture page</a>. </p>
+<h4 id="ensuring-data-security"><a class="header" href="#ensuring-data-security">Ensuring data security</a></h4>
+<p>When using a platform such as GitHub, there are important steps which need to be taken to ensure that anything confidential such as data or results are not inadvertently shared or uploaded into the public domain. A <code>gitignore</code> file (located within the root of your project as a plaintext file named <code>.gitignore</code> specifies untracked files that Git should ignore, with each line specifying a pattern. This should be created before the first commit, as this <em><strong>will not</strong></em> remove files already uploaded.</p>
+<pre><code># ignore specific files
+.Rproj.user
+.Rbuildignore
+.Rhistory
+.Rdata
+# ignore all content within specific directories
+data/**
+outputs/**
+# ignore certain filetypes across all directories
+**.png
+**.log
+**.csv
+</code></pre>
+<p>Further details on <code>gitignore</code> can be found in the <a href="https://git-scm.com/docs/gitignore">gitignore documentation</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter_3_quality_assurance.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="intro_to_r.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter_3_quality_assurance.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="intro_to_r.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="mermaid.min.js"></script>
+        <script type="text/javascript" src="mermaid-init.js"></script>
+    </body>
+</html>

@@ -1,0 +1,646 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Economics &amp; Strategic Analysis&#x27;s Best Practice Guide to Analysis</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="chapter_1_project_management.html"><strong aria-hidden="true">1.</strong> Managing Analytical Projects</a></li><li class="chapter-item expanded "><a href="chapter_2_reproducible_pipelines.html"><strong aria-hidden="true">2.</strong> Reproducible Analytical Pipelines</a></li><li class="chapter-item expanded "><a href="chapter_3_quality_assurance.html"><strong aria-hidden="true">3.</strong> Quality Assurance</a></li><li class="chapter-item expanded "><a href="chapter_4_best_practice_coding.html"><strong aria-hidden="true">4.</strong> Best Practice in Coding</a></li><li class="chapter-item expanded "><a href="intro_to_r.html"><strong aria-hidden="true">5.</strong> Introduction to R</a></li><li class="chapter-item expanded "><a href="documentation.html"><strong aria-hidden="true">6.</strong> Documentation</a></li><li class="chapter-item expanded "><a href="data_analysis.html"><strong aria-hidden="true">7.</strong> Data Analysis</a></li><li class="chapter-item expanded "><a href="econometrics.html"><strong aria-hidden="true">8.</strong> Econometrics</a></li><li class="chapter-item expanded "><a href="data_science.html"><strong aria-hidden="true">9.</strong> Data Science</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Economics &amp; Strategic Analysis&#x27;s Best Practice Guide to Analysis</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Field</th><th style="text-align: center">Value</th></tr></thead><tbody>
+<tr><td style="text-align: center">Author</td><td style="text-align: center">Economics &amp; Strategic Analysis Team, NHSE</td></tr>
+<tr><td style="text-align: center">Contributors</td><td style="text-align: center">Edmund Haacke, Anastasiia Zharinova</td></tr>
+<tr><td style="text-align: center">Date Modified</td><td style="text-align: center">2022.09.01</td></tr>
+<tr><td style="text-align: center">Status</td><td style="text-align: center">In development</td></tr>
+</tbody></table>
+</div>
+<p>This document is <strong>work in progress</strong>. Please do not as of yet rely on the contents.</p>
+<p>The intention of this document is to act as a guide when conducting analytical projects. Not all of the sections may be relevant, nor may they all be feasible depending on the project. The reader should feel free to draw from the sections relevant to them.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="managing-analytical-projects"><a class="header" href="#managing-analytical-projects">Managing Analytical Projects</a></h1>
+<h2 id="project-management-tools"><a class="header" href="#project-management-tools">Project Management Tools</a></h2>
+<h3 id="processes"><a class="header" href="#processes">Processes</a></h3>
+<h4 id="analytical-tasks"><a class="header" href="#analytical-tasks">Analytical Tasks</a></h4>
+<h4 id="errormiscalculation-log"><a class="header" href="#errormiscalculation-log">Error/Miscalculation Log</a></h4>
+<p>Any errors or miscalculates identified within the development stage should be logged accordingly. These can be recorded in the 'development' task app in MS Teams, or the 'Issues' tab within GitHub. Both these platforms allow the issue to be assigned to an individual, who will take responsibility for correcting it, and once doing so, can check this off. This mitigates the risk that previously identified errors filter through to final results shared with stakeholders.</p>
+<h4 id="decision-log"><a class="header" href="#decision-log">Decision Log</a></h4>
+<h4 id="lessons-learnt-log"><a class="header" href="#lessons-learnt-log">Lessons Learnt Log</a></h4>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reproducible-analytical-pipelines"><a class="header" href="#reproducible-analytical-pipelines">Reproducible Analytical Pipelines</a></h1>
+<p>Analytical tasks can vary in their nature, from quick turn-around to long-term pieces. Short-term projects may develop into a longer-term commission within the team; or be revisited or refreshed in the future. There is also an organizational need to avoid duplicative work, thus work may be passed on to others. With this in mind, guidance on developing reproducible analytical pipelines should be followed where possible, proportionate and reasonable.'</p>
+<h2 id="what-it-is"><a class="header" href="#what-it-is">What it is</a></h2>
+<p>A Reproducible Analytical Pipeline (RAP) is an automated statistical and analytical process (Government Analysis Function, 2022). The benefits are:</p>
+<ol>
+<li>Improved quality of analysis - easier to quality assure than manual processes</li>
+<li>Increased trust in analysis by producers, managers and users</li>
+<li>More efficient process</li>
+<li>Improved business continuity and knowledge management</li>
+</ol>
+<h2 id="rap-attributes"><a class="header" href="#rap-attributes">RAP attributes</a></h2>
+<ol>
+<li>Minimization of manual steps, and where absolutely required, these should be documented</li>
+<li>Built in open source software, e.g. R or Python</li>
+<li>Peer reviewed to ensure process is reproducible, and meets the necessary requirements below</li>
+<li>Audit trail using version control i.e. through Git</li>
+<li>Open to anyone, with limitations, for example restricted or confidential data</li>
+<li>Follow good practice for quality assurance</li>
+<li>Contains well commented code, embedded documenetation, and version controlled within the product</li>
+</ol>
+<p>Pipelines can further be developed through:</p>
+<ul>
+<li>functions and code modularity</li>
+<li>unit testing of functions</li>
+<li>error handling for functions</li>
+<li>documentation for functions</li>
+<li>packaging</li>
+<li>code style</li>
+<li>input data validation</li>
+<li>logging of data and the analysis</li>
+<li>continuous integration and dependency management</li>
+</ul>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
+<ul>
+<li>Government Analysis Function, (2022). Reproducible Analytical Pipelines. Available via <a href="https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines">https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="quality-assurance"><a class="header" href="#quality-assurance">Quality Assurance</a></h1>
+<p>Quality assurance (QA) is an integral part of any analytical project. It helps ensure that decision making is done with an understanding of the evidence and risks, and helps to ensure that the integrity of any analytical outputs. For the team, it also helps to reduce the reputational damage associated with backtracking on findings due to errors. There is also a NHS England Business Critical Model processes which should be followed where appropriate. Further details can be found on the intranet.</p>
+<p>There are different activities that can be undertaken to assist with the QA process. A project may necessitate a combination of these, with QA requirements elicited during the project planning phase to enable adequate time to advertise and secure relevant people to advise or undertake the QA. It is important that the <strong>QA operates throughout the model lifecycle</strong>, rather than something to undertake at the conclusion of a project.</p>
+<p>To enable successful QA of all analysis, all code should be developed in a manner which enables this QA to take place, adhering to best practice. This allows those performing the QA to do so in an efficient and comprehensive manner.</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Type</th><th style="text-align: left">Description</th><th style="text-align: left">Timeframe</th><th style="text-align: left">Characteristics</th></tr></thead><tbody>
+<tr><td style="text-align: center">Internal QA</td><td style="text-align: left">Individual(s) within the team conduct the QA</td><td style="text-align: left">At appropriate stages of the analysis, before results are presented to key stakeholders</td><td style="text-align: left">Review of the code, analytical approach etc.</td></tr>
+<tr><td style="text-align: center">External QA</td><td style="text-align: left">Individual(s) external to the team, but internal to the organization</td><td style="text-align: left">At the conclusion of the development</td><td style="text-align: left">Review of the code, analytical approach etc</td></tr>
+<tr><td style="text-align: center">Academic input</td><td style="text-align: left">Academic(s) who may have expertise in the area of the analysis</td><td style="text-align: left">During the project</td><td style="text-align: left">Input into the analytical approach, methods and theory. Does not involve a review of the code-base or outputs</td></tr>
+<tr><td style="text-align: center">Clinical input</td><td style="text-align: left">Clinician(s) such as NHS England clinical advisors</td><td style="text-align: left">During development</td><td style="text-align: left">Checking clinical validity of findings (where relevant)</td></tr>
+<tr><td style="text-align: center">Econometrics &amp; Data Science User Group</td><td style="text-align: left">NHS England colleagues</td><td style="text-align: left">During development</td><td style="text-align: left">A forum in which to discuss methodological approaches, and recieve input from others in the organization</td></tr>
+<tr><td style="text-align: center">NHSE Business Critical Model</td><td style="text-align: left">See guidance</td><td style="text-align: left">See guidance</td><td style="text-align: left">See guidance</td></tr>
+</tbody></table>
+</div>
+<h2 id="academic-input"><a class="header" href="#academic-input">Academic input</a></h2>
+<p>For more complex analyses involving economic theory or econometrics, academic input can be highly valuable. These can provide additional learning to the team, and ensure the corrrect analytical approach and theories are used. It can also provide reassurances to (senior) stakeholders on the findings, helping to land the project with impact. Academic conferences, such as the Health Economics Study Group (HESG) also provide a forum to discuss analyses, which can also help raise the profile of the team within the academic world. Any input should be prioritized in line with usual procedures.</p>
+<h2 id="clinical-input"><a class="header" href="#clinical-input">Clinical input</a></h2>
+<p>Where relevant, any analysis undertaken should be <strong>clinically relevant</strong>. Clinicians are able to provide on-the-ground experience and knowledge, and can inform areas to explore, how certain processes work, and assist in interpreting results, for example whether findings are plausible or a statistical anomaly, and what factors could explain a certain finding. The team have worked closely with Regional Clinical Advisors on the A&amp;E crowding project, and presented to their forums.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="best-practice-in-codingprogramming"><a class="header" href="#best-practice-in-codingprogramming">Best practice in coding/programming</a></h1>
+<h2 id="key-principles"><a class="header" href="#key-principles">Key principles</a></h2>
+<p>Good quality code, and thus coding practice is crucial for several reasons</p>
+<ol>
+<li>It allows for easy maintenance for both yourself, and others in the team</li>
+<li>It enables others to peer review your code easily</li>
+</ol>
+<h4 id="naming"><a class="header" href="#naming">Naming</a></h4>
+<p>All variables should be named clearly, in a meaningfully descriptive manner that gives the user context as to what the variable contains. A key test of this is whether you would, six months later, come back to the code, and immediately continue working on it.</p>
+<p>There are different naming conventions, which may differ across programming languages.</p>
+<ol>
+<li><strong>Snakecase</strong>, where words are delimited by an underscore <code>variable_one</code>. This is the naming convention used by Python (van Rossum <em>et al</em>, 2001), and C.</li>
+<li><strong>Pascalcase</strong> (or Upper Camelcase), where words are delimited by capital letters <code>VariableOne</code>. </li>
+<li><strong>Camelcase</strong>, where words are delimited by capital letters, except the initial word <code>variableOne</code>. This is the naming convention used by C++ for variables/functions.</li>
+<li><strong>Hungarian Notation</strong>, where the variable type/purpose is at the start of the variable name, followed by a description of the variable. Camelcase notation is used to delimit words. <code>arrAgeGroups</code> denotes an array called 'AgeGroups', and <code>iAgeLimit</code> denotes an integer called 'Age Limit'.</li>
+</ol>
+<p>Note that R does not have a formal naming convention, with multiple naming conventions prevalent throughout. Uses can also use '.' within names, e.g. <code>variable.one</code>.</p>
+<p>STATA places restrictions on the length of variable names, they are limited to 32 characters. You will often find that when loading data with column names above this limit, that STATA renames your columns to <code>var1</code> etc... You cannot change this limit. This therefore raises the need to use abbreviations (although this applies to naming in general). You should follow two principles in using abbreviations:</p>
+<ol>
+<li><strong>Consistency</strong>: if you use an abbreviation, it should be used everywhere instead of the full name. You should have only a single abbreviation for a name.</li>
+<li><strong>Recognition</strong>: the abbreviation should be commonly recognized, and understood.</li>
+</ol>
+<p>Ultimately, which naming convention you choose is user-preference, however, it is important for legibility that you are consistent in using it across your code.</p>
+<h4 id="whitespace-and-tabbing"><a class="header" href="#whitespace-and-tabbing">Whitespace and tabbing</a></h4>
+<p>Whitespace is any space in your code which isn't taken up by physical characters. Some languages ignore whitespace and tabbing, however some rely upon this to function (e.g. Python). Whitespace is important for organizing code, and is frequently used in nested loops and logical statements.</p>
+<h5 id="no-whitespace"><a class="header" href="#no-whitespace">No whitespace</a></h5>
+<pre><code class="language-r"># print even numbers between 0 and 10
+for(i in 1:10){ if(i%%2==0){ print(i) } else {print('not even')} }
+</code></pre>
+<h5 id="with-whitespace"><a class="header" href="#with-whitespace">With whitespace</a></h5>
+<pre><code class="language-r"># print even numbers between 0 and 10
+for (i in 1:10){
+	if (i%%2==0){
+		print(i)
+	} else {
+		print('not even')
+	}
+}
+</code></pre>
+<p>Again it is important to use whitespace and tabbing in a consistent, readable style within any code.</p>
+<h4 id="commenting"><a class="header" href="#commenting">Commenting</a></h4>
+<p>Commenting is a key practice to help with organization and segment your code. Comments can help label code, and sections of code, and should be used in a consistent and intuitive manner, which help other users to easily understand your code. Conversely, you should not over-comment your code, as this may compromise ease of understanding.</p>
+<h4 id="dont-repeat-yourself-dry"><a class="header" href="#dont-repeat-yourself-dry">Don't Repeat Yourself (DRY)</a></h4>
+<p>The Don't Repeat Yourself (DRY) principle essentially means avoid repeating code. Any duplication should be eliminated through automation (e.g. loops). These duplicates add unnecessary code into your codebase, which can require additional work to build on your code in the future. It decreases the quality of the code, and usually stems from copy paste programming. It can also lead to errors in the future, as you have to modify several instances of the same code, some of which may be missed.</p>
+<h4 id="you-arent-going-to-need-it-yagni"><a class="header" href="#you-arent-going-to-need-it-yagni">You Aren't Going to Need It (YAGNI)</a></h4>
+<p>The You Aren't Going to Need It (YAGNI) principle states you shouldn't develop code for something that isn't necessary. Essentially, you should only implement things when you need them, not when you just foresee that you need them. </p>
+<h4 id="refactor"><a class="header" href="#refactor">Refactor</a></h4>
+<p>Refactoring code is when you review, and look for ways to optimize to your code, with the goal of making it more efficient without changing the results. It is normal to revisit, rewrite, or even redesign chunks of code, especially as your knowledge and familiarity of the project develop.</p>
+<h3 id="other-considerations"><a class="header" href="#other-considerations">Other considerations</a></h3>
+<p>Although the aforementioned principles to programming are</p>
+<h3 id="examples-of-code"><a class="header" href="#examples-of-code">Examples of code</a></h3>
+<p>Below are some examples of code that the ESA Team has produced</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Project</th><th style="text-align: left">Programming language</th><th style="text-align: left">Location</th><th style="text-align: left">Authors</th></tr></thead><tbody>
+<tr><td style="text-align: left">ED crowding</td><td style="text-align: left">R</td><td style="text-align: left"><a href="https://github.com/nhsengland/ESA_ED_Crowding">NHS England GitHub</a></td><td style="text-align: left">Svetlana Batrakova, Ranya Alakraa, Dimitris Pipinis, Edmund Haacke</td></tr>
+<tr><td style="text-align: left">Avoidable ED attendances</td><td style="text-align: left">C++ and R</td><td style="text-align: left"><a href="https://github.com/nhsengland/ESA_Avoidable_ED_Attendances">NHS England GitHub</a></td><td style="text-align: left">Edmund Haacke</td></tr>
+</tbody></table>
+</div>
+<h2 id="version-control"><a class="header" href="#version-control">Version control</a></h2>
+<h3 id="version-control-in-coding"><a class="header" href="#version-control-in-coding">Version control in coding</a></h3>
+<p>Version control in development, is the process of tracking and managing changes to files over time. Version control can be used for versioning code, binary files and digital assets. A version control system allows for the following benefits:</p>
+<ol>
+<li>Concurrent development - multiple users can work using the same set of files without the concern of overwriting other team members' work.</li>
+<li>Collaboration - there is a single source of the truth available to all users. Each team member is working on the latest version of the code.</li>
+<li>Tracked changes - version control systems let you identify who changed what, when and why. This gives an auditable log of all changes made to the code-base.</li>
+</ol>
+<p>One of the most widely used version control systems is <strong>Git</strong>. </p>
+<p>When using a platform such as GitHub, it is <strong>important you follow any organizational policies</strong> relating to its use. You can find further details on the <a href="https://nhsengland.github.io/it-standards">ICT Architecture page</a>. </p>
+<h4 id="ensuring-data-security"><a class="header" href="#ensuring-data-security">Ensuring data security</a></h4>
+<p>When using a platform such as GitHub, there are important steps which need to be taken to ensure that anything confidential such as data or results are not inadvertently shared or uploaded into the public domain. A <code>gitignore</code> file (located within the root of your project as a plaintext file named <code>.gitignore</code> specifies untracked files that Git should ignore, with each line specifying a pattern. This should be created before the first commit, as this <em><strong>will not</strong></em> remove files already uploaded.</p>
+<pre><code># ignore specific files
+.Rproj.user
+.Rbuildignore
+.Rhistory
+.Rdata
+# ignore all content within specific directories
+data/**
+outputs/**
+# ignore certain filetypes across all directories
+**.png
+**.log
+**.csv
+</code></pre>
+<p>Further details on <code>gitignore</code> can be found in the <a href="https://git-scm.com/docs/gitignore">gitignore documentation</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-to-r"><a class="header" href="#introduction-to-r">Introduction to R</a></h1>
+<h2 id="introduction-1"><a class="header" href="#introduction-1">Introduction</a></h2>
+<p>This is not meant to be a comprehensive guide to learning R, rather it is intended to introduce basic concepts. You can find indepth training provided by the NHS-R community.</p>
+<h2 id="data-types"><a class="header" href="#data-types">Data Types</a></h2>
+<p>R has a number of basic data types:</p>
+<ul>
+<li>character e.g. <code>&quot;hello&quot;</code></li>
+<li>numeric (real/decimal) e.g. <code>1.1</code> or <code>1</code></li>
+<li>integer e.g. <code>1L</code> where <code>L</code> tells R to store as an integer</li>
+<li>logical e.g. <code>TRUE</code> or <code>FALSE</code></li>
+<li>complex e.g. <code>1+4i</code>, these are complex numbers with real and imaginary parts</li>
+</ul>
+<p>Some useful functions to examine the features of objects, not those limited to the aforementioned ones are</p>
+<ul>
+<li>The name of the class(es) from which an object inherits (e.g. what kind of object it is)
+<pre><code class="language-r">helloStr &lt;- &quot;hello, world&quot;
+class(helloStr)
+</code></pre>
+</li>
+<li>The name of the R type an object is
+<pre><code class="language-r">typeof(helloStr)
+</code></pre>
+</li>
+<li>The length of an object
+<pre><code class="language-r">length(helloStr)
+</code></pre>
+</li>
+<li>Any metadata associated with the object
+<pre><code class="language-r">attributes(helloStr)
+</code></pre>
+</li>
+</ul>
+<h3 id="strings-or-characters"><a class="header" href="#strings-or-characters">Strings or characters</a></h3>
+<p>Strings can be created using either <code>&quot;</code> or <code>'</code> and are stored as a <code>character</code> object.</p>
+<pre><code class="language-r">string1 &lt;- &quot;hello this is a string&quot;
+string2 &lt;- 'hello this is also a string'
+</code></pre>
+<p>If you require a <code>'</code> within a string, for example when defining an SQL query, use <code>&quot;</code> to define your string, and vice-versa.</p>
+<pre><code class="language-r">string3 &lt;- &quot;select * from tbl where date &gt;='2022-01-01'&quot;
+</code></pre>
+<h2 id="data-structures"><a class="header" href="#data-structures">Data Structures</a></h2>
+<p>R also has multiple data structures, including</p>
+<ul>
+<li>atomic vectors e.g. <code>c(1,2,3,4,5)</code></li>
+<li>list e.g. <code>list(1,&quot;2&quot;,&quot;three&quot;)</code></li>
+<li>matrix</li>
+<li>data.frame</li>
+<li>factors</li>
+</ul>
+<h3 id="atomic-vectors"><a class="header" href="#atomic-vectors">Atomic vectors</a></h3>
+<p>An atomic vector is a vector containing objects all of the same type. If you define an atomic vector with multiple different data types, R will (implicitly) coerce the elements within your vector.</p>
+<h2 id="loops"><a class="header" href="#loops">Loops</a></h2>
+<pre><code class="language-r">for (i in 1:10){
+    print(i)
+}
+</code></pre>
+<p>Another way of looping through a list/vector is to use <code>lapply(x,FUN,...)</code>, which applies a function (<code>FUN</code>) to a list (or vector) <code>x</code>, returning a list of the same length as <code>x</code>.</p>
+<pre><code class="language-r"># multiply numbers 1 thru 10 by 100
+listOneToTen &lt;- lapply(1:10,function(x) x*100)
+# lists can be simplified to a vector using the unlist function
+vecOneToTen &lt;- unlist(listOneToTen)
+</code></pre>
+<p>The <code>lapply</code> function is frequently used within <code>data.table</code> to apply a function to several columns, and can be used in aggregation.</p>
+<pre><code class="language-r"># given a data.table dt, substitute all spaces with blanks, and convert to numeric
+# for column1 and column2, and place in a new column suffixed with _clean
+dt[,c(&quot;column1_clean&quot;,&quot;column2_clean&quot;):=lapply(.SD,function(x){
+    tmp &lt;- gsub(&quot;[[:blank:]]&quot;,&quot;&quot;,x)
+    return(as.numeric(tmp))
+}), .SDcols=c(&quot;column1&quot;,&quot;column2&quot;)]
+
+# ---- aggregate numeric columns ----
+# identify numeric columns by applying is.numeric function to all columns in dt
+numCols &lt;- colnames(dt)[unlist(lapply(dt,is.numeric))]
+# sum all values in numeric columns
+dtAgg &lt;- dt[,lapply(.SD,sum,na.rm=TRUE),by=&quot;org_code&quot;,.SDcols=numCols]
+</code></pre>
+<h2 id="packages"><a class="header" href="#packages">Packages</a></h2>
+<p>Packages can be installed from CRAN using the <code>install.packages()</code> function. Some packages may only be released on GitHub, in which case the <code>devtools</code> packages can be used to install using <code>devtools::install_github()</code>.</p>
+<h3 id="datatable"><a class="header" href="#datatable">data.table</a></h3>
+<p><code>data.table</code> is a highly performant, C-backed alternative to R's base <code>data.frame</code>. As it also inherits from <code>data.frame</code>,  this means it is fully compatible with any packages requiring this.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="documentation"><a class="header" href="#documentation">Documentation</a></h1>
+<p>Accompanying documentation is vital to ensure the maintainability of a codebase, irrespective of whom is working on it. The main purpose of the documentation is to describe <em><strong>why</strong></em> the code does what it does, and is an important part of the development process. The documentation should be sufficient to allow others to repeat the analysis. Documentation can aid in knowledge transfer, support in debugging of issues, revisiting your code in the future, to allow others to use your code easily and build upon it, and allow reproducibility and transparency.</p>
+<ol>
+<li>Documentation should be <strong>simple</strong> and <strong>concise</strong>.</li>
+<li>Documentation should be kept <strong>up-to-date</strong>. As code is updated, the associated documentation should be updated. You should trim your documentation as appropriate, removing anything outdated.</li>
+</ol>
+<h2 id="creating-documentation"><a class="header" href="#creating-documentation">Creating documentation</a></h2>
+<p>Markdown-based systems are one of the most popular documentation systems. Markdown is a lightweight markup language for creating formatted text using a plain-text editor. Markdown (specifically GitHub Flavored Markdown, GFM) is used across GitHub (e.g. README.md files), and is easy to pickup. A key benefit to using Markdown as opposed to Word for example, is that version control solutions can easily track any changes.</p>
+<p>Mermaid is a Javascript-based diagramming and charting tool, which uses Markdown-inspired text definitions and a renderer to create and modify complex diagrams. These charts are created entirely using text through a simple syntax. Mermaid supports many different types of diagrams, including flowcharts; sequence, class, state and entity relationship diagrams, Gantt, and pie charts. These diagrams can also be generated through code. You can find substantial documentation <a href="https://mermaid-js.github.io/mermaid/#/">on their website</a>.</p>
+<p>Visual Studio Code supports the creation of Markdown and Mermaid graphs (with export functionality) through extensions available in the marketplace. You can also use <a href="https://stackedit.io">StackEdit</a> as a free solution to write Markdown and Mermaid which can be synced using Google Drive or Dropbox. <a href="https://mermaid.live">Mermaid Live</a> is a free site that lets you render Mermaid graphs, which can be downloaded in the PNG or SVG image format.</p>
+<h2 id="markdown-gfm"><a class="header" href="#markdown-gfm">Markdown (GFM)</a></h2>
+<p>This is not intended to be a comprehensive documentation of Markdown, however some basic elements are presented below.</p>
+<hr />
+<h3 id="text"><a class="header" href="#text">Text</a></h3>
+<p>Text is rendered as follows:</p>
+<pre><code class="language-markdown">This is some text.
+
+This is more text.
+</code></pre>
+<p>Which renders as follows:</p>
+<p>This is some text.</p>
+<p>This is more text.</p>
+<p>Text can be formatted as bold, italics, blockquotes, links, and images.</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Element</th><th style="text-align: left">Syntax</th><th style="text-align: left">Example</th></tr></thead><tbody>
+<tr><td style="text-align: center">Bold</td><td style="text-align: left"><code>**bold text**</code></td><td style="text-align: left"><strong>bold text</strong></td></tr>
+<tr><td style="text-align: center">Italic</td><td style="text-align: left"><code>_italic text_</code></td><td style="text-align: left"><em>italic text</em></td></tr>
+<tr><td style="text-align: center">Bold Italic</td><td style="text-align: left"><code>***bold italics***</code></td><td style="text-align: left"><em><strong>bold italics</strong></em></td></tr>
+<tr><td style="text-align: center">Code</td><td style="text-align: left"><code>`code`</code></td><td style="text-align: left"><code>code</code></td></tr>
+<tr><td style="text-align: center">Strikethru</td><td style="text-align: left"><code>~~strikethru~~</code></td><td style="text-align: left"><del>strikethru</del></td></tr>
+<tr><td style="text-align: center">Highlight</td><td style="text-align: left"><code>==highlight==</code></td><td style="text-align: left">==highlight==</td></tr>
+<tr><td style="text-align: center">Link</td><td style="text-align: left"><code>[github](https://github.com)</code></td><td style="text-align: left"><a href="https://github.com">github</a></td></tr>
+</tbody></table>
+</div>
+<hr />
+<h3 id="code"><a class="header" href="#code">Code</a></h3>
+<p>Code-blocks can be created in Markdown, with support for syntax highlighting many renderers e.g. GitHub.</p>
+<p>Inline code can be defined using single <code>`</code> as such  <code>`code`</code>  resulting in <code>code</code>. To create blocks of code, tripple <code>`</code> can be used, with the language defined after the first set of ticks. See the rendering platofmr</p>
+<pre><code>```scala
+val str = &quot;hello world23412&quot;.replaceAll(&quot;[0-9]&quot;, &quot;&quot;)
+val strSplit = str.split(&quot; &quot;)
+```
+
+```rust
+#[derive(Parser)]
+#[clap(version=concat!(env!(&quot;CARGO_PKG_VERSION&quot;)), about=&quot;Molokai&quot;)]
+struct Args {
+    /// Address to bind server to
+    #[clap(short, long, default_value = &quot;0.0.0.0&quot;)]
+    address: String,
+    /// Port to listen on
+    #[clap(short, long, default_value = &quot;3000&quot;)]
+    port: u16
+}
+fn main() {
+    let args = Args::parse();
+    println!(&quot;address {}&quot;, args.address);
+    println!(&quot;port {}&quot;, args.port)
+}
+```
+
+</code></pre>
+<pre><code class="language-scala">val str = &quot;hello world23412&quot;.replaceAll(&quot;[0-9]&quot;, &quot;&quot;)
+val strSplit = str.split(&quot; &quot;)
+</code></pre>
+<pre><pre class="playground"><code class="language-rust">#[derive(Parser)]
+#[clap(version=concat!(env!(&quot;CARGO_PKG_VERSION&quot;)), about=&quot;Molokai&quot;)]
+struct Args {
+    /// Address to bind server to
+    #[clap(short, long, default_value = &quot;0.0.0.0&quot;)]
+    address: String,
+    /// Port to listen on
+    #[clap(short, long, default_value = &quot;3000&quot;)]
+    port: u16
+}
+fn main() {
+    let args = Args::parse();
+    println!(&quot;address {}&quot;, args.address);
+    println!(&quot;port {}&quot;, args.port)
+}
+</code></pre></pre>
+<hr />
+<h3 id="headings"><a class="header" href="#headings">Headings</a></h3>
+<p>Headings are created using the <code>#</code> symbol. Multiple consecutive <code>#</code> are used to create ever smaller headings.</p>
+<pre><code class="language-markdown">### heading 1
+
+This is some text.
+
+#### heading 2
+
+This is some more text.
+
+##### heading 3
+
+This is even more text.
+</code></pre>
+<h4 id="heading-1"><a class="header" href="#heading-1">heading 1</a></h4>
+<p>This is some text.</p>
+<h5 id="heading-2"><a class="header" href="#heading-2">heading 2</a></h5>
+<p>This is some more text.</p>
+<h6 id="heading-3"><a class="header" href="#heading-3">heading 3</a></h6>
+<p>This is even more text.</p>
+<hr />
+<h3 id="lists"><a class="header" href="#lists">Lists</a></h3>
+<p>Lists can be ordered or unordered, where ordered lists are ordered automatically. Lists can also have sub-items, which can be a mix of ordered or unordered lists. Use four spaces or one tab to create an sub-list.</p>
+<pre><code class="language-markdown">* item 1
+* item 2
+* item 3
+    * item 3.1
+
+1. item 4
+1. item 5
+1. item 6
+    - item 6.1
+</code></pre>
+<ul>
+<li>item 1</li>
+<li>item 2</li>
+<li>item 3
+<ul>
+<li>item 3.1</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>item 4</li>
+<li>item 5</li>
+<li>item 6
+<ul>
+<li>item 6.1</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="tables"><a class="header" href="#tables">Tables</a></h3>
+<p>Tables can be created using GitHub Flavoured Markdown (GFM). Columns can be left, center or right aligned, using <code>:---</code>, <code>:---:</code> or <code>---:</code> respectively (see line 2 below).</p>
+<pre><code>| column 1 | column 2 | column 3 |
+| :--- | :---: | ---: |
+| left align | center align | right align |
+| **bold** | _italics_ | ***bold italic*** |
+| `code` |
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">column 1</th><th style="text-align: center">column 2</th><th style="text-align: right">column 3</th></tr></thead><tbody>
+<tr><td style="text-align: left">left align</td><td style="text-align: center">center align</td><td style="text-align: right">right align</td></tr>
+<tr><td style="text-align: left"><strong>bold</strong></td><td style="text-align: center"><em>italics</em></td><td style="text-align: right"><em><strong>bold italic</strong></em></td></tr>
+<tr><td style="text-align: left"><code>code</code></td><td style="text-align: center"></td><td style="text-align: right"></td></tr>
+</tbody></table>
+</div>
+<hr />
+<h3 id="blockquotes"><a class="header" href="#blockquotes">Blockquotes</a></h3>
+<p>The <code>&gt;</code> symbol can be used to commence a blockquote.</p>
+<pre><code>&gt; line one of the block quote.
+&gt; this continues on the previous line.
+</code></pre>
+<blockquote>
+<p>line one of the block quote.
+this continues on the previous line.</p>
+</blockquote>
+<hr />
+<h2 id="mermaid"><a class="header" href="#mermaid">Mermaid</a></h2>
+<p>Mermaid is an excellent tool for creating graphs of many different types using purely text. GitHub will also render mermaid, whether inline within a Markdown document, or individually as a <code>.mmd</code> file. Mermaid can be fully integrated in version control software, and can also be generated via code, for example using the <code>diagrammeR</code> package in R. Please refer to their documentation <a href="https://mermaid-js.github.io/mermaid/">here</a> for an indepth guide on how to get started. Examples of its use can be found within certain ESA projects on the NHS England GitHub.</p>
+<p>You can create an inline mermaid chart as follows (note it may not work for all renderers)</p>
+<pre><code>```mermaid
+%% this is a comment
+%% mermaid syntax goes here
+```
+</code></pre>
+<h3 id="flowcharts"><a class="header" href="#flowcharts">Flowcharts</a></h3>
+<pre><code>```mermaid
+flowchart LR
+    node1[This is a node in a square]
+    node2(This is a square node with rounded edges)
+    node3([This is a node with rounded corners])
+```
+</code></pre>
+<pre class="mermaid">flowchart LR
+    node1[This is a node in a square]
+    node2(This is a square node with rounded edges)
+    node3([This is a node with rounded corners])
+</pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="data-analysis"><a class="header" href="#data-analysis">Data Analysis</a></h1>
+<h2 id="accessing-data"><a class="header" href="#accessing-data">Accessing data</a></h2>
+<h2 id="data-cleansing"><a class="header" href="#data-cleansing">Data Cleansing</a></h2>
+<h2 id="data-exploration"><a class="header" href="#data-exploration">Data Exploration</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="econometrics"><a class="header" href="#econometrics">Econometrics</a></h1>
+<h2 id="literature-review"><a class="header" href="#literature-review">Literature Review</a></h2>
+<p>A review of the existing literature is can occur in the form of a <em>rapid literature review</em>, which, as the name suggests is conducted over a very short period of time. For larger, longer term projects, it may be desirable to conduct a more thorough review of the literature. There are three main goals when conducting a review of the literature:</p>
+<ol>
+<li>Summarize and analyse previous research, theories and analytical approaches</li>
+<li>Identify contested areas or conflicting findings</li>
+<li>Highlight gaps within the literature</li>
+</ol>
+<p>The literature review is important as it can help inform the analytical approach (e.g. what econometric model, what other factors need to be controlled for etc). Furthermore, it can provide a means to quality assure your analysis through a simple sense check, for example checking whether your findings are in alignment with, or contradictory to the majority of existing literature.</p>
+<p>Some resources for accessing academic journals are as follows:</p>
+<ul>
+<li>OpenAthens: You can register an OpenAthens account through the National Institute for Health and Care Excellence (NICE) </li>
+<li>EconLit: Members and Associate Members (e.g. NHSE) of the Government Economics Service (GES) receive free access to <a href="https://members.ges.gov.uk/your-career/your-continued-professional-development/core-resources-and-guidance/ebsco/">EconLit Journal Access</a>. Note this is only open those with an Economics degree and working in the Economics profession.</li>
+</ul>
+<h2 id="theoretical-and-conceptual-frameworks"><a class="header" href="#theoretical-and-conceptual-frameworks">Theoretical and conceptual frameworks</a></h2>
+<h2 id="hypothesis-identification"><a class="header" href="#hypothesis-identification">Hypothesis identification</a></h2>
+<h2 id="modelling"><a class="header" href="#modelling">Modelling</a></h2>
+<h2 id="robustness-checks"><a class="header" href="#robustness-checks">Robustness checks</a></h2>
+<h2 id="analysing-and-reporting-outputs"><a class="header" href="#analysing-and-reporting-outputs">Analysing and reporting outputs</a></h2>
+<h3 id="statistical-significance"><a class="header" href="#statistical-significance">Statistical significance</a></h3>
+<p>The use of special characters to represent the statistical significance level within a regression output, for example <code>*</code>, <code>**</code> and <code>.</code>, is common practice within research. As there may be slight variations how these are reported across various analytical platforms and packages, the following definitions are recommended to avoid confusion. When communicating results to less technical audiences, we may also wish to phrase the significance level in words, which are also presented below.</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">p value</th><th style="text-align: center">representation</th><th style="text-align: left">text representation</th></tr></thead><tbody>
+<tr><td style="text-align: center">p &lt; 0.001 (p&lt;0.1%)</td><td style="text-align: center"><code>***</code></td><td style="text-align: left">strongly significant</td></tr>
+<tr><td style="text-align: center">p &lt; 0.01 (p&lt;1%)</td><td style="text-align: center"><code>**</code></td><td style="text-align: left">strongly significant</td></tr>
+<tr><td style="text-align: center">p &lt; 0.05 (p&lt;5%)</td><td style="text-align: center"><code>*</code></td><td style="text-align: left">strongly significant</td></tr>
+<tr><td style="text-align: center">p &lt; 0.1 (p&lt;10%)</td><td style="text-align: center"><code>.</code> or <code>+</code></td><td style="text-align: left">weakly significant</td></tr>
+</tbody></table>
+</div>
+<h3 id="guide-to-interpreting-regression-coefficients"><a class="header" href="#guide-to-interpreting-regression-coefficients">Guide to interpreting regression coefficients</a></h3>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">model</th><th style="text-align: left">variable</th><th style="text-align: left">relationship</th><th style="text-align: left">description</th><th style="text-align: left">interpretation</th></tr></thead><tbody>
+<tr><td style="text-align: left">Linear (OLS)</td><td style="text-align: left">$$ \beta_x $$</td><td style="text-align: left">linear-linear</td><td style="text-align: left">$\x$ is not a proportion/share</td><td style="text-align: left">All things equal, a <strong>1 unit</strong> increase in $\x$ is <em>associated</em> with a $\\beta_x$ increase in $\y$</td></tr>
+<tr><td style="text-align: left">Linear (OLS)</td><td style="text-align: left">$$ \beta_x $$</td><td style="text-align: left">linear-linear</td><td style="text-align: left">$\x$ is a proportion/share</td><td style="text-align: left">Where $\x$ is a proportion/share, a <strong>1 percentage point</strong> increase in $\x$ is <em>associated</em> with a $\frac{\beta_x}{100}$ increase in $\y$</td></tr>
+<tr><td style="text-align: left">Linear (OLS)</td><td style="text-align: left">$$ log(\beta_x) $$</td><td style="text-align: left">linear-log</td><td style="text-align: left">$\x$ is not a proportion/share</td><td style="text-align: left">test</td></tr>
+<tr><td style="text-align: left">Linear (OLS)</td><td style="text-align: left">$$ log(\beta_x) $$</td><td style="text-align: left">linear-log</td><td style="text-align: left">$\x$ is a proportion/share</td><td style="text-align: left">test</td></tr>
+<tr><td style="text-align: left">Generalized Linear - Poisson/Negative Binomial count models with log-link</td><td style="text-align: left">$$ \beta_x $$</td><td style="text-align: left">log-linear</td><td style="text-align: left">$\x$ is not a proportion/share</td><td style="text-align: left">All things equal, a <strong>1 unit</strong> increase in $\x$ is <em>associated</em> with a $\\beta_x$ increase in the log of the ratio of expected counts <em><strong>or</strong></em> a <strong>1 unit</strong> increase in $\x$ is <em>associated</em> with a $\(exp(\beta_x)-1)*100%$ increase in the <strong>rate</strong> of $\y$</td></tr>
+<tr><td style="text-align: left">Generalized Linear - Poisson/Negative Binomial count models with log-link</td><td style="text-align: left">$$ \beta_x $$</td><td style="text-align: left">log-linear</td><td style="text-align: left">$\x$ is a proportion/share</td><td style="text-align: left">All things equal, a <strong>1 percentage point</strong> increase in $\x$ is <em>associated</em> with a $\frac{\beta_x}{100}$ increase in log of the ratio of expected counts <em><strong>or</strong></em> a <strong>1 percentage point</strong> increase in $\x$ is <em>associated</em> with a $\(exp(\frac{\beta_x}{100})-1)*100%$ increase in the <strong>rate</strong> of $\y$</td></tr>
+</tbody></table>
+</div>
+<h3 id="economic-significance"><a class="header" href="#economic-significance">Economic Significance</a></h3>
+<p>Whilst a particular variable or regressor may be statistically significant, this does not imply that they are <em><strong>economically significant</strong></em> - essentially whether or not something matters in the real-world. For example, a finding may be statistically significant, but the coefficient may be negligible. One suggested method is to scale the coefficient by relevant factor determined from the sample, such as one standard deviation, or the difference between the min/mean/max to the min/mean/max. Rather than presenting the results based on a one unit increase in \[x\], this approach relates the finding back to the sample used. Note for generalized linear regression models, the scaling should be applied <em>before</em> transformation (e.g. taking the exponential).</p>
+<h3 id="control-variables"><a class="header" href="#control-variables">Control variables</a></h3>
+<p>Frequently, reporting of results from an econometric analysis will focus around one, or a few main <em>variables of interest</em>. It is however important, and may raise interesting findings from a policy perspective, to review findings from <em>all</em> variables, including controls within the model. It is recommended that regression outputs are either <strong>tabulated</strong> into an Excel/CSV document, or <strong>visualized using coefficient plots</strong>.</p>
+<p>Example: tabulating regression outputs into a csv in R</p>
+<pre><code class="language-r"># install if necessary, or load the broom package
+if(!require('broom')) install.packages('broom')
+model &lt;- lm(data=df,formula=y~x1+x2+x3+x4)
+modelOutput &lt;- broom::tidy(model)
+write.csv(modelOutput,here('outputs/model_output.csv'))
+</code></pre>
+<p>Example: creating a simple coefficient plot using <code>ggplot2</code> in R</p>
+<pre><code class="language-r">
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="data-science"><a class="header" href="#data-science">Data Science</a></h1>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="mermaid.min.js"></script>
+        <script type="text/javascript" src="mermaid-init.js"></script>
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+    </body>
+</html>

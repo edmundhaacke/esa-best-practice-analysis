@@ -1,0 +1,359 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Documentation - Economics &amp; Strategic Analysis&#x27;s Best Practice Guide to Analysis</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="chapter_1_project_management.html"><strong aria-hidden="true">1.</strong> Managing Analytical Projects</a></li><li class="chapter-item expanded "><a href="chapter_2_reproducible_pipelines.html"><strong aria-hidden="true">2.</strong> Reproducible Analytical Pipelines</a></li><li class="chapter-item expanded "><a href="chapter_3_quality_assurance.html"><strong aria-hidden="true">3.</strong> Quality Assurance</a></li><li class="chapter-item expanded "><a href="chapter_4_best_practice_coding.html"><strong aria-hidden="true">4.</strong> Best Practice in Coding</a></li><li class="chapter-item expanded "><a href="intro_to_r.html"><strong aria-hidden="true">5.</strong> Introduction to R</a></li><li class="chapter-item expanded "><a href="documentation.html" class="active"><strong aria-hidden="true">6.</strong> Documentation</a></li><li class="chapter-item expanded "><a href="data_analysis.html"><strong aria-hidden="true">7.</strong> Data Analysis</a></li><li class="chapter-item expanded "><a href="econometrics.html"><strong aria-hidden="true">8.</strong> Econometrics</a></li><li class="chapter-item expanded "><a href="data_science.html"><strong aria-hidden="true">9.</strong> Data Science</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Economics &amp; Strategic Analysis&#x27;s Best Practice Guide to Analysis</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="documentation"><a class="header" href="#documentation">Documentation</a></h1>
+<p>Accompanying documentation is vital to ensure the maintainability of a codebase, irrespective of whom is working on it. The main purpose of the documentation is to describe <em><strong>why</strong></em> the code does what it does, and is an important part of the development process. The documentation should be sufficient to allow others to repeat the analysis. Documentation can aid in knowledge transfer, support in debugging of issues, revisiting your code in the future, to allow others to use your code easily and build upon it, and allow reproducibility and transparency.</p>
+<ol>
+<li>Documentation should be <strong>simple</strong> and <strong>concise</strong>.</li>
+<li>Documentation should be kept <strong>up-to-date</strong>. As code is updated, the associated documentation should be updated. You should trim your documentation as appropriate, removing anything outdated.</li>
+</ol>
+<h2 id="creating-documentation"><a class="header" href="#creating-documentation">Creating documentation</a></h2>
+<p>Markdown-based systems are one of the most popular documentation systems. Markdown is a lightweight markup language for creating formatted text using a plain-text editor. Markdown (specifically GitHub Flavored Markdown, GFM) is used across GitHub (e.g. README.md files), and is easy to pickup. A key benefit to using Markdown as opposed to Word for example, is that version control solutions can easily track any changes.</p>
+<p>Mermaid is a Javascript-based diagramming and charting tool, which uses Markdown-inspired text definitions and a renderer to create and modify complex diagrams. These charts are created entirely using text through a simple syntax. Mermaid supports many different types of diagrams, including flowcharts; sequence, class, state and entity relationship diagrams, Gantt, and pie charts. These diagrams can also be generated through code. You can find substantial documentation <a href="https://mermaid-js.github.io/mermaid/#/">on their website</a>.</p>
+<p>Visual Studio Code supports the creation of Markdown and Mermaid graphs (with export functionality) through extensions available in the marketplace. You can also use <a href="https://stackedit.io">StackEdit</a> as a free solution to write Markdown and Mermaid which can be synced using Google Drive or Dropbox. <a href="https://mermaid.live">Mermaid Live</a> is a free site that lets you render Mermaid graphs, which can be downloaded in the PNG or SVG image format.</p>
+<h2 id="markdown-gfm"><a class="header" href="#markdown-gfm">Markdown (GFM)</a></h2>
+<p>This is not intended to be a comprehensive documentation of Markdown, however some basic elements are presented below.</p>
+<hr />
+<h3 id="text"><a class="header" href="#text">Text</a></h3>
+<p>Text is rendered as follows:</p>
+<pre><code class="language-markdown">This is some text.
+
+This is more text.
+</code></pre>
+<p>Which renders as follows:</p>
+<p>This is some text.</p>
+<p>This is more text.</p>
+<p>Text can be formatted as bold, italics, blockquotes, links, and images.</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Element</th><th style="text-align: left">Syntax</th><th style="text-align: left">Example</th></tr></thead><tbody>
+<tr><td style="text-align: center">Bold</td><td style="text-align: left"><code>**bold text**</code></td><td style="text-align: left"><strong>bold text</strong></td></tr>
+<tr><td style="text-align: center">Italic</td><td style="text-align: left"><code>_italic text_</code></td><td style="text-align: left"><em>italic text</em></td></tr>
+<tr><td style="text-align: center">Bold Italic</td><td style="text-align: left"><code>***bold italics***</code></td><td style="text-align: left"><em><strong>bold italics</strong></em></td></tr>
+<tr><td style="text-align: center">Code</td><td style="text-align: left"><code>`code`</code></td><td style="text-align: left"><code>code</code></td></tr>
+<tr><td style="text-align: center">Strikethru</td><td style="text-align: left"><code>~~strikethru~~</code></td><td style="text-align: left"><del>strikethru</del></td></tr>
+<tr><td style="text-align: center">Highlight</td><td style="text-align: left"><code>==highlight==</code></td><td style="text-align: left">==highlight==</td></tr>
+<tr><td style="text-align: center">Link</td><td style="text-align: left"><code>[github](https://github.com)</code></td><td style="text-align: left"><a href="https://github.com">github</a></td></tr>
+</tbody></table>
+</div>
+<hr />
+<h3 id="code"><a class="header" href="#code">Code</a></h3>
+<p>Code-blocks can be created in Markdown, with support for syntax highlighting many renderers e.g. GitHub.</p>
+<p>Inline code can be defined using single <code>`</code> as such  <code>`code`</code>  resulting in <code>code</code>. To create blocks of code, tripple <code>`</code> can be used, with the language defined after the first set of ticks. See the rendering platofmr</p>
+<pre><code>```scala
+val str = &quot;hello world23412&quot;.replaceAll(&quot;[0-9]&quot;, &quot;&quot;)
+val strSplit = str.split(&quot; &quot;)
+```
+
+```rust
+#[derive(Parser)]
+#[clap(version=concat!(env!(&quot;CARGO_PKG_VERSION&quot;)), about=&quot;Molokai&quot;)]
+struct Args {
+    /// Address to bind server to
+    #[clap(short, long, default_value = &quot;0.0.0.0&quot;)]
+    address: String,
+    /// Port to listen on
+    #[clap(short, long, default_value = &quot;3000&quot;)]
+    port: u16
+}
+fn main() {
+    let args = Args::parse();
+    println!(&quot;address {}&quot;, args.address);
+    println!(&quot;port {}&quot;, args.port)
+}
+```
+
+</code></pre>
+<pre><code class="language-scala">val str = &quot;hello world23412&quot;.replaceAll(&quot;[0-9]&quot;, &quot;&quot;)
+val strSplit = str.split(&quot; &quot;)
+</code></pre>
+<pre><pre class="playground"><code class="language-rust">#[derive(Parser)]
+#[clap(version=concat!(env!(&quot;CARGO_PKG_VERSION&quot;)), about=&quot;Molokai&quot;)]
+struct Args {
+    /// Address to bind server to
+    #[clap(short, long, default_value = &quot;0.0.0.0&quot;)]
+    address: String,
+    /// Port to listen on
+    #[clap(short, long, default_value = &quot;3000&quot;)]
+    port: u16
+}
+fn main() {
+    let args = Args::parse();
+    println!(&quot;address {}&quot;, args.address);
+    println!(&quot;port {}&quot;, args.port)
+}
+</code></pre></pre>
+<hr />
+<h3 id="headings"><a class="header" href="#headings">Headings</a></h3>
+<p>Headings are created using the <code>#</code> symbol. Multiple consecutive <code>#</code> are used to create ever smaller headings.</p>
+<pre><code class="language-markdown">### heading 1
+
+This is some text.
+
+#### heading 2
+
+This is some more text.
+
+##### heading 3
+
+This is even more text.
+</code></pre>
+<h4 id="heading-1"><a class="header" href="#heading-1">heading 1</a></h4>
+<p>This is some text.</p>
+<h5 id="heading-2"><a class="header" href="#heading-2">heading 2</a></h5>
+<p>This is some more text.</p>
+<h6 id="heading-3"><a class="header" href="#heading-3">heading 3</a></h6>
+<p>This is even more text.</p>
+<hr />
+<h3 id="lists"><a class="header" href="#lists">Lists</a></h3>
+<p>Lists can be ordered or unordered, where ordered lists are ordered automatically. Lists can also have sub-items, which can be a mix of ordered or unordered lists. Use four spaces or one tab to create an sub-list.</p>
+<pre><code class="language-markdown">* item 1
+* item 2
+* item 3
+    * item 3.1
+
+1. item 4
+1. item 5
+1. item 6
+    - item 6.1
+</code></pre>
+<ul>
+<li>item 1</li>
+<li>item 2</li>
+<li>item 3
+<ul>
+<li>item 3.1</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>item 4</li>
+<li>item 5</li>
+<li>item 6
+<ul>
+<li>item 6.1</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="tables"><a class="header" href="#tables">Tables</a></h3>
+<p>Tables can be created using GitHub Flavoured Markdown (GFM). Columns can be left, center or right aligned, using <code>:---</code>, <code>:---:</code> or <code>---:</code> respectively (see line 2 below).</p>
+<pre><code>| column 1 | column 2 | column 3 |
+| :--- | :---: | ---: |
+| left align | center align | right align |
+| **bold** | _italics_ | ***bold italic*** |
+| `code` |
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">column 1</th><th style="text-align: center">column 2</th><th style="text-align: right">column 3</th></tr></thead><tbody>
+<tr><td style="text-align: left">left align</td><td style="text-align: center">center align</td><td style="text-align: right">right align</td></tr>
+<tr><td style="text-align: left"><strong>bold</strong></td><td style="text-align: center"><em>italics</em></td><td style="text-align: right"><em><strong>bold italic</strong></em></td></tr>
+<tr><td style="text-align: left"><code>code</code></td><td style="text-align: center"></td><td style="text-align: right"></td></tr>
+</tbody></table>
+</div>
+<hr />
+<h3 id="blockquotes"><a class="header" href="#blockquotes">Blockquotes</a></h3>
+<p>The <code>&gt;</code> symbol can be used to commence a blockquote.</p>
+<pre><code>&gt; line one of the block quote.
+&gt; this continues on the previous line.
+</code></pre>
+<blockquote>
+<p>line one of the block quote.
+this continues on the previous line.</p>
+</blockquote>
+<hr />
+<h2 id="mermaid"><a class="header" href="#mermaid">Mermaid</a></h2>
+<p>Mermaid is an excellent tool for creating graphs of many different types using purely text. GitHub will also render mermaid, whether inline within a Markdown document, or individually as a <code>.mmd</code> file. Mermaid can be fully integrated in version control software, and can also be generated via code, for example using the <code>diagrammeR</code> package in R. Please refer to their documentation <a href="https://mermaid-js.github.io/mermaid/">here</a> for an indepth guide on how to get started. Examples of its use can be found within certain ESA projects on the NHS England GitHub.</p>
+<p>You can create an inline mermaid chart as follows (note it may not work for all renderers)</p>
+<pre><code>```mermaid
+%% this is a comment
+%% mermaid syntax goes here
+```
+</code></pre>
+<h3 id="flowcharts"><a class="header" href="#flowcharts">Flowcharts</a></h3>
+<pre><code>```mermaid
+flowchart LR
+    node1[This is a node in a square]
+    node2(This is a square node with rounded edges)
+    node3([This is a node with rounded corners])
+```
+</code></pre>
+<pre class="mermaid">flowchart LR
+    node1[This is a node in a square]
+    node2(This is a square node with rounded edges)
+    node3([This is a node with rounded corners])
+</pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="intro_to_r.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="data_analysis.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="intro_to_r.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="data_analysis.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="mermaid.min.js"></script>
+        <script type="text/javascript" src="mermaid-init.js"></script>
+    </body>
+</html>
