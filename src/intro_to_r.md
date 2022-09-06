@@ -89,9 +89,18 @@ dt[,c("column1_clean","column2_clean"):=lapply(.SD,function(x){
     tmp <- gsub("[[:blank:]]","",x)
     return(as.numeric(tmp))
 }), .SDcols=c("column1","column2")]
+
 # ---- aggregate numeric columns ----
 # identify numeric columns by applying is.numeric function to all columns in dt
 numCols <- colnames(dt)[unlist(lapply(dt,is.numeric))]
 # sum all values in numeric columns
 dtAgg <- dt[,lapply(.SD,sum,na.rm=TRUE),by="org_code",.SDcols=numCols]
 ```
+
+## Packages
+
+Packages can be installed from CRAN using the `install.packages()` function. Some packages may only be released on GitHub, in which case the `devtools` packages can be used to install using `devtools::install_github()`.
+
+### data.table
+
+`data.table` is a highly performant, C-backed alternative to R's base `data.frame`. As it also inherits from `data.frame`,  this means it is fully compatible with any packages requiring this.
